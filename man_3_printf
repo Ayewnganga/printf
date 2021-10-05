@@ -1,0 +1,27 @@
+.TH _PRINTF  "October 2021" "Custom printf Manual"
+.SH NAME
+_printf - formatted output conversion with number of bytes printed as return
+.SH SYNOPSIS
+
+Printf is a variadic function with one mandatory argument format and extra arguments that can be none at all or many.
+
+Its inclusion requires the header\ "main.h".
+
+.B #include \ "main.h"
+
+Its prototype goes as follows:
+
+.B int _printf(const char *format, ...);
+
+.SH DESCRIPTION
+
+The function _printf() writes output to stdout, the standard output stream with
+the format and options presented below. It uses an internal buffer of 1024 bytes
+although it can print larger sets of data.
+.TP
+.BR Return
+
+Upon succesful execution, this function returns the the number of characters printed (excluding the null byte used to end output to strings).
+
+If an output error is encountered, a negative value of -1 is returned.
+
