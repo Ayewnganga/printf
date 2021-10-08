@@ -10,8 +10,7 @@
 
 int print_int(va_list arg)
 {
-	unsigned int count_zero = 1, num, n, new_num;
-	int count_bytes = 4;
+	int count_zero = 1, num, n, new_num, count_bytes = 4;
 
 	num = va_arg(arg, int);
 
@@ -32,7 +31,7 @@ int print_int(va_list arg)
 	while (count_zero >= 1)
 	{
 		new_num = ((num / count_zero) % 10) + 48;
-		write(1, &new_num, 1)
+		write(1, &new_num, 1);
 		count_zero /= 10;
 	}
 	return (count_bytes);

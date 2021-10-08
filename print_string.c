@@ -14,7 +14,7 @@ int print_string(va_list arg)
 	int i, count_bytes = 0;
 
 	s = va_arg(arg, char *);
-	for (i = 0; s[i] != '\0')
+	for (i = 0; s[i] != '\0'; i++)
 	{
 		write(1, (s + i), 1);
 		count_bytes++;
