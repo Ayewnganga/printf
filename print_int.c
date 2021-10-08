@@ -8,9 +8,10 @@
  *
  */
 
-void print_int(va_list arg)
+int print_int(va_list arg)
 {
 	unsigned int count_zero = 1, num, n, new_num;
+	int count_bytes = 4;
 
 	num = va_arg(arg, int);
 
@@ -34,4 +35,5 @@ void print_int(va_list arg)
 		write(1, &new_num, 1)
 		count_zero /= 10;
 	}
+	return (count_bytes);
 }

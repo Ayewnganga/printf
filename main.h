@@ -15,7 +15,7 @@
 typedef struct Args
 {
 	char symbol;
-	void (*print)(va_list arg);
+	int (*print)(va_list arg);
 }Args;
 
 void print_char(va_list arg);

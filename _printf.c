@@ -11,7 +11,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i, j;
+	int i, j, count_bytes = 0;
 	va_list args;
 
 	Args argument[] = {
@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 
 	if (format == NULL)
-		return (-1);
+		return (0);
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
@@ -32,22 +32,22 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == '%')
 			{
-				write(1, (format + i + 1), 1);
+				count_bytes += write(1, (format + i + 1), 1);
 			}
 			for (j = 0; j < 4; j++)
 			{
 				if (format[i + 1] == argument[j].symbol)
 				{
-					argument[j].print(args);
+					count_bytes += argument[j].print(args);
 				}
 			}
 			i++;
 		}
 		else
 		{
-			write(1, (format + i), 1);
+			count_bytes += write(1, (format + i), 1);
 		}
 	}
 	va_end(args);
-	return (0);
+	return (count_bytes);
 }

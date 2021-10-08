@@ -8,10 +8,13 @@
  *
  */
 
-void print_char(va_list arg)
+int print_char(va_list arg)
 {
 	char c;
+	int count_bytes = 1;
 
 	c = va_arg(arg, int);
 	write(1, &c, 1);
+
+	return (count_bytes);
 }
