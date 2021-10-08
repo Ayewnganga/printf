@@ -9,17 +9,18 @@
 
 /**
  * struct format - match the conversion specifiers for printf
- * @id: type char pointer of the specifier
- * @f: type pointer to function for the conversion specifier
+ * @symbol: type char pointer of the specifier
+ * @print: type pointer to function for the conversion specifier
  *
  */
 
-typedef struct Args
+typedef struct format
 {
 	char symbol;
 	int (*print)(va_list arg);
-}Args;
+} Args;
 
+int _putchar(char c);
 int print_char(va_list arg);
 int print_string(va_list arg);
 int print_int(va_list arg);
