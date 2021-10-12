@@ -48,6 +48,10 @@ int _printf(const char *format, ...)
 			}
 			i++;
 		}
+		else if (format[i] == '%' && format[i + 1] == '\0')
+		{
+			return (-1);
+		}
 		else
 		{
 			count_bytes += write(1, (format + i), 1);
