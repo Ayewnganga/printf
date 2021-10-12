@@ -14,10 +14,18 @@ int print_string(va_list arg)
 	int i, count_bytes = 0;
 
 	s = va_arg(arg, char *);
-	for (i = 0; s[i] != '\0'; i++)
+	if (s == NULL)
 	{
-		write(1, (s + i), 1);
-		count_bytes++;
+		write(1, "(null)", 6);
+		count_bytes += 6;
+	}
+	else
+	{
+		for (i = 0; s[i] != '\0'; i++)
+		{
+			write(1, (s + i), 1);
+			count_bytes++;
+		}
 	}
 	return (count_bytes);
 }
